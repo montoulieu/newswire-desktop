@@ -34,9 +34,15 @@ body {
 }
 
 .list-group-item {
-  background: darken($color-light, 50%);
+  background: darken($color-light, 85%);
   color: $color-light;
   border-radius: 0 !important;
+
+  &:hover,
+  &:focus {
+    background: darken($color-light, 80%);
+    outline: 0;
+  }
 }
 
 .font-weight-700 {

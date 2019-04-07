@@ -18,7 +18,7 @@
           </div> -->
         </div>
         <div class="col-md-3 order-1 px-0 pt-4 border-right border-dark text-left">
-          <h2 class="text-light font-weight-800 letter-spacing-1 text-left pl-3 pt-1">Newswire</h2>
+          <h1 class="text-light font-weight-800 letter-spacing-1 text-left pl-3 pt-1">Newswire</h1>
           <b-list-group class="pt-1">
             <b-list-group-item button v-for="(options, channel) in channels" :key="channel.id" v-on:click="changeChannel(channel)" class="py-3 pl-3">
               <img :src="options.logo.url" v-if="options.logo.url" :height="options.logo.height">
@@ -26,7 +26,7 @@
             </b-list-group-item>
           </b-list-group>
           <div class="pt-3 pl-3">
-            <b-button v-b-modal.modal-1 size="sm" variant="outline-gray">Settings</b-button>
+            <b-button v-b-modal.modal-1 size="sm" variant="outline-gray" class="mt-1"><img src="static/icons/settings.svg" height="24"></b-button>
           </div>
         </div>
       </div>
@@ -201,6 +201,7 @@
             console.log('Opened stream: ' + url)
             hls.on(Hls.Events.MANIFEST_PARSED, function (event, data) {
               // console.log('manifest loaded, found ' + data.levels.length + ' quality level')
+              video.play()
               self.loadingState = 'loaded'
               console.log('loaded')
             })

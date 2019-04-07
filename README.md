@@ -1,4 +1,4 @@
-# newswire
+# Newswire
 
 > A modern desktop frontend for live cable news streams
 

@@ -1,0 +1,18 @@
+$color-primary: #49b884;
+$color-dark: #110c11;
+$color-light: #fafafa;
+
+$theme-colors: (
+  primary: $color-primary,
+  dark: $color-dark,
+);
+
+@import '~bootstrap/scss/bootstrap.scss';
+
+body {
+  background: $color-dark;
+  color: $color-light;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+}

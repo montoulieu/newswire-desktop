@@ -1,11 +1,12 @@
 $color-primary: #49b884;
 $color-dark: #1e1e1e;
 $color-light: #fafafa;
+$color-gray: darken($color-light, 50%);
 
 $theme-colors: (
   primary: $color-primary,
   dark: $color-dark,
-  gray: darken($color-light, 50%),
+  gray: $color-gray,
 );
 
 @import '~bootstrap/scss/bootstrap.scss';
@@ -56,4 +57,31 @@ body {
 }
 .letter-spacing-1 {
   letter-spacing: 1px;
+}
+
+video {
+  -webkit-appearance:none;
+
+  &::-webkit-media-controls-panel {
+    -webkit-app-region: no-drag;
+    background-color: $color-dark;
+    filter: saturate(0);
+  }
+
+  // &::-webkit-media-controls-timeline {
+  //   background-color: $color-gray;
+  // }
+
+  // &::-webkit-media-controls-volume-slider-container,
+  // &::-webkit-media-controls-volume-slider,
+  // &::-webkit-media-controls-seek-forward-button
+  // {
+  //   background-color: $color-gray;
+  // }
+
+  // &::-webkit-media-controls-current-time-display,
+  // &::-webkit-media-controls-time-remaining-display,
+  // &::-webkit-media-controls-mute-button  {
+  //   color: $color-gray
+  // }
 }

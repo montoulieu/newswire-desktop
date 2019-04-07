@@ -1,8 +1,8 @@
 {
   "name": "newswire",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Pieter Montoulieu <pi.mont@icloud.com>",
-  "description": "An electron-vue project",
+  "description": "A modern desktop portal for live cable news streams",
   "license": null,
   "main": "./dist/electron/main.js",
   "scripts": {
@@ -22,7 +22,7 @@
     "postinstall": "npm run lint:fix"
   },
   "build": {
-    "productName": "newswire",
+    "productName": "Newswire",
     "appId": "com.pixelglitch.newswire",
     "directories": {
       "output": "build"

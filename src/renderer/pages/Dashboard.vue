@@ -25,13 +25,13 @@
               <span class="label" v-if="!options.logo.url">{{channel}}</span>
             </b-list-group-item>
           </b-list-group>
-          <div class="pt-3 pl-3">
+          <!-- <div class="pt-3 pl-3">
             <b-button v-b-modal.modal-1 size="sm" variant="outline-gray" class="mt-1"><img src="static/icons/settings.svg" height="24"></b-button>
-          </div>
+          </div> -->
         </div>
       </div>
       <!-- Modal Component -->
-      <b-modal id="modal-1" title="About"
+      <!-- <b-modal id="modal-1" title="About"
         size="lg"
         header-bg-variant="gray"
         body-bg-variant="gray"
@@ -39,7 +39,7 @@
         centered
       >
         <a href="#" v-on:click="open('https://pixelglitch.net')">pixel glitch llc</a>
-      </b-modal>
+      </b-modal> -->
     </b-container>
   </div>
 </template>
@@ -97,6 +97,14 @@
             },
             favorite: false
           },
+          'Al Jazeera America': {
+            url: 'https://www.livenewsnow.com/american/al-jazeera-america.html',
+            logo: {
+              url: 'static/svg/logo/aljazeera.svg',
+              height: 30
+            },
+            favorite: false
+          },
           'Bloomberg': {
             url: 'https://www.watchnews.pro/bloomberg.html',
             logo: {
@@ -105,6 +113,7 @@
             },
             favorite: false
           },
+
           'The Weather Channel': {
             url: 'https://www.watchnews.pro/the-weather-channel.html',
             logo: {

@@ -20,19 +20,31 @@ function createWindow () {
    * Initial window options
    */
   mainWindow = new BrowserWindow({
-    height: 563,
+    height: 520,
+    width: 1230,
+    // minHeight: 550,
+    // minWidth: 1280,
+    resizable: false,
     useContentSize: true,
-    width: 1000,
+    darkTheme: true,
+    titleBarStyle: 'hidden',
     webPreferences: {
       webSecurity: false
     }
   })
+  // const defaultRatio = 1.9 / 1
 
   mainWindow.loadURL(winURL)
+  // mainWindow.setAspectRatio(defaultRatio)
 
   mainWindow.on('closed', () => {
     mainWindow = null
   })
+
+  // mainWindow.on('resize', () => {
+  //   const ratio = mainWindow.isFullScreen() ? 0 : defaultRatio
+  //   mainWindow.setAspectRatio(ratio)
+  // })
 }
 
 app.on('ready', createWindow)

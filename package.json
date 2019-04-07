@@ -46,15 +46,15 @@
       ]
     },
     "mac": {
-      "icon": "build/icons/icon.icns",
+      "icon": "build/icons/1024x1024.png",
       "category": "public.app-category.news",
       "darkModeSupport": true
     },
     "win": {
-      "icon": "build/icons/icon.ico"
+      "icon": "build/icons/1024x1024.png"
     },
     "linux": {
-      "icon": "build/icons"
+      "icon": "build/icons/1024x1024.png"
     }
   },
   "dependencies": {
@@ -63,6 +63,7 @@
     "bootstrap-vue": "^2.0.0-rc.16",
     "cheerio": "^1.0.0-rc.3",
     "hls.js": "^0.12.4",
+    "jquery": "^3.3.1",
     "request": "^2.88.0",
     "request-promise": "^4.2.4",
     "vue": "^2.5.16",

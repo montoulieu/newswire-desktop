@@ -1,10 +1,11 @@
 $color-primary: #49b884;
-$color-dark: #110c11;
+$color-dark: #1e1e1e;
 $color-light: #fafafa;
 
 $theme-colors: (
   primary: $color-primary,
   dark: $color-dark,
+  gray: darken($color-light, 50%),
 );
 
 @import '~bootstrap/scss/bootstrap.scss';
@@ -15,4 +16,38 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  -webkit-app-region: drag
+}
+
+.spinner-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+
+  span {
+    width: 5em;
+    height: 5em;
+  }
+}
+
+.list-group-item {
+  background: darken($color-light, 50%);
+  color: $color-light;
+  border-radius: 0 !important;
+}
+
+.font-weight-700 {
+  font-weight: 700;
+}
+.font-weight-800 {
+  font-weight: 800;
+}
+.font-weight-900 {
+  font-weight: 900;
+}
+.letter-spacing-1 {
+  letter-spacing: 1px;
 }

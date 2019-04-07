@@ -2,7 +2,7 @@
   "name": "newswire",
   "version": "0.0.2",
   "author": "Pieter Montoulieu <pi.mont@icloud.com>",
-  "description": "A modern desktop portal for live cable news streams",
+  "description": "A modern desktop frontend for live cable news streams",
   "license": null,
   "main": "./dist/electron/main.js",
   "scripts": {
@@ -46,15 +46,15 @@
       ]
     },
     "mac": {
-      "icon": "build/icons/1024x1024.png",
+      "icon": "build/icons/1024x1024-green.png",
       "category": "public.app-category.news",
       "darkModeSupport": true
     },
     "win": {
-      "icon": "build/icons/1024x1024.png"
+      "icon": "build/icons/1024x1024-green.png"
     },
     "linux": {
-      "icon": "build/icons/1024x1024.png"
+      "icon": "build/icons/1024x1024-green.png"
     }
   },
   "dependencies": {

@@ -1,8 +1,14 @@
-# newswire
+# Newswire
 
 > A modern desktop frontend for live cable news streams
 
 ![app screenshot](https://github.com/pi-mont/newswire-desktop/blob/master/screen.png?raw=true)
+
+### Todo
+- [ ] Custom player controls with macOS functionality (Airplay and PiP)
+- [ ] Fix broken news streams (Fox News, HLN, CNBC)
+- [ ] Allow for resizing and hiding of sidebar
+- [ ] Add country dropdown in sidebar
 
 #### Build Setup
 
@@ -18,7 +24,6 @@ npm run build
 
 # run unit & end-to-end tests
 npm test
-
 
 # lint all JS/Vue component files in `src/`
 npm run lint

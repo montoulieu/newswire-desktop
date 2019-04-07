@@ -4,6 +4,11 @@
 
 ![app screenshot](https://github.com/pi-mont/newswire-desktop/blob/master/screen.png?raw=true)
 
+### Todo
+- [ ] Custom player controls with macOS functionality (Airplay and PiP)
+- [ ] Fix broken news streams (Fox News, HLN, CNBC)
+- [ ] Allow for resizing and hiding of sidebar
+
 #### Build Setup
 
 ``` bash

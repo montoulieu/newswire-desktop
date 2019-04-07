@@ -3,7 +3,7 @@
 > A modern desktop frontend for live cable news streams
 
 ## About
-Newswire is a frontend for news livestreams that allows you to quickly channel surf through several American news stations.
+Newswire is a frontend for news livestreams that allows you to quickly channel surf through American news stations.
 
 This app is in an alpha state and built for macOS only at the moment. (Windows & Linux coming soon!)
 

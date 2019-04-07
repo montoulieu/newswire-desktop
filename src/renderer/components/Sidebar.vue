@@ -5,7 +5,7 @@
       <span class="version bg-danger ml-2 mb-2 px-1 d-inline-block rounded">alpha {{ versionNumber }}</span>
     </header>
 
-    <channel-list :channels="channels" @change-channel="handleChannelChange"/>
+    <channel-list :currentChannel="currentChannel" :channels="channels" @open-stream="openStream"/>
     <!-- <div class="pt-3 pl-3">
       <b-button v-b-modal.modal-1 size="sm" variant="outline-gray" class="mt-1"><img src="static/icons/settings.svg" height="24"></b-button>
     </div> -->
@@ -18,7 +18,8 @@ import ChannelList from '@/components/ChannelList'
 export default {
   name: 'sidebar',
   props: {
-    channels: Object
+    channels: Object,
+    currentChannel: Object
   },
   components: {
     ChannelList
@@ -30,8 +31,8 @@ export default {
     }
   },
   methods: {
-    handleChannelChange (channel) {
-      this.$emit('change-channel', channel)
+    openStream (stream) {
+      this.$emit('open-stream', stream)
     }
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "newswire",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Pieter Montoulieu <pi.mont@icloud.com>",
   "description": "A modern desktop frontend for live cable news streams",
   "license": null,

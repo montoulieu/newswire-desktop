@@ -4,8 +4,16 @@
     @mouseleave="hovering = false"
   >
     <div class="embed-responsive embed-responsive-16by9 p-relative">
-      <video class="embed-responsive-item " width="720" height="480" id="video" autoplay :controls="hovering ? 'controls' : false" :poster="channels[currentChannel.name].logo.url ? channels[currentChannel.name].logo.url : false"></video>
-      <div class="spinner-container text-center d-flex justify-content-center align-items-center" v-if="loadingState != 'loaded'">
+      <video
+        class="embed-responsive-item"
+        width="720"
+        height="480"
+        id="video"
+        autoplay
+        :controls="hovering ? 'controls' : false"
+        :poster="currentChannel.logo ? currentChannel.logo : false"
+      />
+      <div class="spinner-container text-center d-flex justify-content-center align-items-center" v-if="currentChannel.state != 'loaded'">
         <b-spinner variant="light" type="grow"></b-spinner>
       </div>
     </div>
@@ -16,9 +24,6 @@
 export default {
   name: 'video-pane',
   props: {
-    channels: Object,
-    loadingState: String,
-    currentStream: String,
     currentChannel: Object
   },
   data () {

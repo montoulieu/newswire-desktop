@@ -1,12 +1,13 @@
 $color-primary: #49b884;
 $color-dark: #262626;
 $color-light: #fafafa;
+$color-red: #f33d35;
 $color-gray: darken($color-light, 50%);
 
 $theme-colors: (
   primary: $color-primary,
   dark: $color-dark,
-  danger: #f33d35,
+  danger: $color-red,
   gray: $color-gray,
 );
 
@@ -53,8 +54,10 @@ button {
 
 
   &:hover,
-  &:focus {
+  &:focus,
+  &.active {
     background: darken($color-light, 80%);
+    border-color: $color-dark;
     outline: 0;
   }
 }

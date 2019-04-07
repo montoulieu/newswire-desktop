@@ -1,6 +1,11 @@
 'use strict'
 
-import { app, BrowserWindow } from 'electron'
+import { app, BrowserWindow, TouchBar } from 'electron'
+const { TouchBarLabel, TouchBarButton, TouchBarSpacer } = TouchBar
+
+const button = new TouchBarButton({
+  label: 'Test'
+})
 
 /**
  * Set `__static` path to static files in production
@@ -15,10 +20,13 @@ const winURL = process.env.NODE_ENV === 'development'
   ? `http://localhost:9080`
   : `file://${__dirname}/index.html`
 
+const touchBar = new TouchBar([
+  button,
+  new TouchBarLabel({ label: 'Label' }),
+  new TouchBarSpacer({ size: 'small' })
+])
+
 function createWindow () {
-  /**
-   * Initial window options
-   */
   mainWindow = new BrowserWindow({
     height: 600,
     width: 1420,
@@ -30,19 +38,20 @@ function createWindow () {
       webSecurity: false
     }
   })
+
   // const defaultRatio = 1.9 / 1
-
-  mainWindow.loadURL(winURL)
   // mainWindow.setAspectRatio(defaultRatio)
-
-  mainWindow.on('closed', () => {
-    mainWindow = null
-  })
-
   // mainWindow.on('resize', () => {
   //   const ratio = mainWindow.isFullScreen() ? 0 : defaultRatio
   //   mainWindow.setAspectRatio(ratio)
   // })
+
+  mainWindow.loadURL(winURL)
+  mainWindow.setTouchBar(touchBar)
+
+  mainWindow.on('closed', () => {
+    mainWindow = null
+  })
 }
 
 app.on('ready', createWindow)

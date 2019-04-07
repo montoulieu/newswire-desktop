@@ -1,17 +1,23 @@
 $color-primary: #49b884;
-$color-dark: #1e1e1e;
+$color-dark: #262626;
 $color-light: #fafafa;
 $color-gray: darken($color-light, 50%);
 
 $theme-colors: (
   primary: $color-primary,
   dark: $color-dark,
+  danger: #f33d35,
   gray: $color-gray,
 );
 
 @import '~bootstrap/scss/bootstrap.scss';
 
+* {
+  cursor: default;
+}
+
 body {
+  user-select: none;
   background: $color-dark;
   color: $color-light;
   -webkit-font-smoothing: antialiased;
@@ -34,10 +40,17 @@ body {
   }
 }
 
+button {
+  cursor: default !important;
+}
+
 .list-group-item {
   background: darken($color-light, 85%);
   color: $color-light;
   border-radius: 0 !important;
+  height: 55px;
+  display: flex;
+
 
   &:hover,
   &:focus {
@@ -67,21 +80,9 @@ video {
     background-color: $color-dark;
     filter: saturate(0);
   }
+}
 
-  // &::-webkit-media-controls-timeline {
-  //   background-color: $color-gray;
-  // }
-
-  // &::-webkit-media-controls-volume-slider-container,
-  // &::-webkit-media-controls-volume-slider,
-  // &::-webkit-media-controls-seek-forward-button
-  // {
-  //   background-color: $color-gray;
-  // }
-
-  // &::-webkit-media-controls-current-time-display,
-  // &::-webkit-media-controls-time-remaining-display,
-  // &::-webkit-media-controls-mute-button  {
-  //   color: $color-gray
-  // }
+span.version {
+  font-size: 0.75rem;
+  display: inline-block;
 }

@@ -2,60 +2,35 @@
   <div id="wrapper" :class="{ 'theme-dark': darkMode }">
     <b-container fluid class="">
       <div class="row">
-        <div class="col-md-9 text-left order-2 px-0"
-          @mouseover="hoveringVideo = true"
-          @mouseleave="hoveringVideo = false"
-        >
-          <div class="embed-responsive embed-responsive-16by9 p-relative">
-            <video class="embed-responsive-item " width="720" height="480" id="video" autoplay :controls="hoveringVideo ? 'controls' : false"></video>
-              <div class="spinner-container text-center d-flex justify-content-center align-items-center" v-if="loadingState != 'loaded'">
-              <b-spinner variant="light" type="grow"></b-spinner>
-            </div>
-          </div>
-          <!-- <div class="card bg-gray py-3" v-if="currentChannel.name">
-            <img :src="channels[currentChannel.name].logo.url" v-if="channels[currentChannel.name].logo.url" height="35">
-            <h2 class="text-primary" v-if="!channels[currentChannel.name].logo">{{ currentChannel.name }}</h2>
-          </div> -->
-        </div>
-        <div class="col-md-3 order-1 px-0 pt-4 border-right border-dark text-left">
-          <h1 class="text-light font-weight-800 letter-spacing-1 text-left pl-3 pt-1">Newswire</h1>
-          <b-list-group class="pt-1">
-            <b-list-group-item button v-for="(options, channel) in channels" :key="channel.id" v-on:click="changeChannel(channel)" class="py-3 pl-3">
-              <img :src="options.logo.url" v-if="options.logo.url" :height="options.logo.height">
-              <span class="label" v-if="!options.logo.url">{{channel}}</span>
-            </b-list-group-item>
-          </b-list-group>
-          <!-- <div class="pt-3 pl-3">
-            <b-button v-b-modal.modal-1 size="sm" variant="outline-gray" class="mt-1"><img src="static/icons/settings.svg" height="24"></b-button>
-          </div> -->
-        </div>
+        <video-pane
+          :channels="channels"
+          :loadingState="loadingState"
+          :currentStream="currentStream"
+          :currentChannel="currentChannel"
+        />
+        <sidebar :channels="channels" @change-channel="changeChannel"/>
       </div>
-      <!-- Modal Component -->
-      <!-- <b-modal id="modal-1" title="About"
-        size="lg"
-        header-bg-variant="gray"
-        body-bg-variant="gray"
-        footer-bg-variant="gray"
-        centered
-      >
-        <a href="#" v-on:click="open('https://pixelglitch.net')">pixel glitch llc</a>
-      </b-modal> -->
     </b-container>
   </div>
 </template>
 
 <script>
-  import ChannelList from '@/components/ChannelList'
+  import Sidebar from '@/components/Sidebar'
+  import VideoPane from '@/components/VideoPane'
+
   import Hls from 'hls.js'
 
   const rp = require('request-promise')
-  const { systemPreferences } = require('electron')
+  // const { systemPreferences } = require('electron')
 
   // const c = require('cheerio')
 
   export default {
     name: 'dashboard',
-    components: { ChannelList },
+    components: {
+      VideoPane,
+      Sidebar
+    },
     data () {
       return {
         loadingState: '',
@@ -138,14 +113,13 @@
           //   logo: 'static/svg/logo/weather-channel.svg',
           //   favorite: false
           // },
-        },
-        hoveringVideo: false
+        }
       }
     },
     mounted () {
       // let self = this
       this.changeChannel(this.currentChannel.name)
-      console.log('SystemPref: ' + systemPreferences)
+      // console.log('SystemPref: ' + systemPreferences)
     },
     computed: {
       darkMode: function () {
@@ -157,21 +131,22 @@
         this.$electron.shell.openExternal(link)
       },
       changeChannel (channel) {
-        this.loadingState = 'loading'
-        console.log(this.loadingState)
-        console.log('Changing to: ' + channel)
+        console.log('------------------------------------------------------------------------------------------------------------')
+        console.log('> Changing to: ' + channel)
         let url = this.getChannelUrl(channel)
+        this.loadingState = 'loading'
+        console.log('> Loading')
         this.getStream(url)
       },
       getChannelUrl (channel) {
-        console.log('Getting channel url')
+        console.log('> Getting channel URL')
         this.currentChannel.url = this.channels[channel].url
         this.currentChannel.name = channel
         return this.channels[channel].url
       },
       getStream (url) {
         let self = this
-        console.log('Scraping url: ' + url)
+        console.log('> Scraping url: ' + url)
         let options = {
           uri: encodeURI(url)
         }
@@ -207,12 +182,14 @@
           hls.on(Hls.Events.MEDIA_ATTACHED, function () {
             // console.log('video and hls.js are now bound together !')
             hls.loadSource(url)
-            console.log('Opened stream: ' + url)
+            console.log('> Opened stream: ' + url)
             hls.on(Hls.Events.MANIFEST_PARSED, function (event, data) {
               // console.log('manifest loaded, found ' + data.levels.length + ' quality level')
               video.play()
               self.loadingState = 'loaded'
-              console.log('loaded')
+              console.log('> Loaded')
+              console.log('------------------------------------------------------------------------------------------------------------')
+              console.log('')
             })
           })
         }

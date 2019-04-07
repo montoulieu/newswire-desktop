@@ -1,6 +1,6 @@
 # newswire
 
-> A modern desktop portal for live cable news streams
+> A modern desktop frontend for live cable news streams
 
 ![app screenshot](https://github.com/pi-mont/newswire-desktop/blob/master/screen.png?raw=true)
 

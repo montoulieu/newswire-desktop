@@ -1,7 +1,14 @@
 <template>
   <div>
     <b-list-group class="pt-1">
-      <b-list-group-item button v-for="(options, channel) in channels" :key="channel.id" v-on:click="changeChannel(channel)" v-bind:class="{ active: channel == currentChannel.name }" class="py-0 pl-4">
+      <b-list-group-item
+        button
+        v-for="(options, channel) in channels"
+        :key="channel.id"
+        v-on:click="changeChannel(channel)"
+        v-bind:class="{ active: channel == currentChannel.name }"
+        class="py-0 pl-4"
+      >
         <img :src="options.logo.url" v-if="options.logo.url" :height="options.logo.height">
         <span class="label" v-if="!options.logo.url">{{channel}}</span>
       </b-list-group-item>
@@ -28,6 +35,7 @@ export default {
       console.log('----------------------------------------------------------------------------------------------------------------')
       console.log('> Changing to: ' + channel)
       let url = this.getChannelUrl(channel)
+      this.$emit('destroy-stream')
       this.currentChannel.state = 'loading'
       console.log('> Loading')
       this.getStream(url)
@@ -41,16 +49,14 @@ export default {
     },
     getStream (url) {
       let self = this
-      console.log('> Scraping URL: ' + url)
       let options = {
         uri: encodeURI(url)
       }
       rp(options)
         .then(function (html) {
-          // success
-          // console.log(html)
-          // let streamData = c('#myElement', html).next()[0].children[0].children[0].data
+          console.log('> Scraping URL: ' + url)
 
+          // success
           let scrapedUrl = html.substring(
             html.lastIndexOf('file: "') + 7,
             html.lastIndexOf('",auto')
@@ -70,22 +76,6 @@ export default {
   data () {
     return {
       channels: {
-        'MSNBC': {
-          url: 'https://www.watchnews.pro/msnbc-news.html',
-          logo: {
-            url: 'static/svg/logo/msnbc.svg',
-            height: 22
-          },
-          favorite: false
-        },
-        'CNN': {
-          url: 'https://www.watchnews.pro/cnn-news.html',
-          logo: {
-            url: 'static/svg/logo/cnn.svg',
-            height: 26
-          },
-          favorite: false
-        },
         'ABC News': {
           url: 'https://www.watchnews.pro/abc-news.html',
           logo: {
@@ -99,6 +89,22 @@ export default {
           logo: {
             url: 'static/svg/logo/cbs-news.svg',
             height: 24
+          },
+          favorite: false
+        },
+        'CNN': {
+          url: 'https://www.watchnews.pro/cnn-news.html',
+          logo: {
+            url: 'static/svg/logo/cnn.svg',
+            height: 26
+          },
+          favorite: false
+        },
+        'MSNBC': {
+          url: 'https://www.watchnews.pro/msnbc-news.html',
+          logo: {
+            url: 'static/svg/logo/msnbc.svg',
+            height: 22
           },
           favorite: false
         },
@@ -118,7 +124,6 @@ export default {
           },
           favorite: false
         },
-
         'The Weather Channel': {
           url: 'https://www.watchnews.pro/the-weather-channel.html',
           logo: {

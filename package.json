@@ -46,15 +46,15 @@
       ]
     },
     "mac": {
-      "icon": "build/icons/1024x1024-green.png",
+      "icon": "build/icons/1024x1024-red.png",
       "category": "public.app-category.news",
       "darkModeSupport": true
     },
     "win": {
-      "icon": "build/icons/1024x1024-green.png"
+      "icon": "build/icons/1024x1024-red.png"
     },
     "linux": {
-      "icon": "build/icons/1024x1024-green.png"
+      "icon": "build/icons/1024x1024-red.png"
     }
   },
   "dependencies": {

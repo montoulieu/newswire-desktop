@@ -1,11 +1,11 @@
-$color-primary: #49b884;
+$color-primary: #0098CB;
 $color-dark: #262626;
 $color-light: #fafafa;
 $color-red: #f33d35;
 $color-gray: darken($color-light, 50%);
 
 $theme-colors: (
-  primary: $color-primary,
+  primary: $color-red,
   dark: $color-dark,
   danger: $color-red,
   gray: $color-gray,

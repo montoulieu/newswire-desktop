@@ -14,7 +14,7 @@
         :poster="currentChannel.logo ? currentChannel.logo : false"
       />
       <div class="spinner-container text-center d-flex justify-content-center align-items-center" v-if="currentChannel.state != 'loaded'">
-        <b-spinner variant="light" type="grow"></b-spinner>
+        <b-spinner variant="primary" type="grow"></b-spinner>
       </div>
     </div>
   </div>

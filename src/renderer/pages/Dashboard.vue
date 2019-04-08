@@ -5,7 +5,7 @@
         <video-pane
           :currentChannel="currentChannel"
         />
-        <sidebar :currentChannel="currentChannel" @open-stream="openStream"/>
+        <sidebar :currentChannel="currentChannel" @open-stream="openStream" @destroy-stream="destroyStream"/>
       </div>
     </b-container>
   </div>
@@ -15,6 +15,7 @@
   import Sidebar from '@/components/Sidebar'
   import VideoPane from '@/components/VideoPane'
   import Hls from 'hls.js'
+  let hls = new Hls({})
   // const { systemPreferences } = require('electron')
 
   // const c = require('cheerio')
@@ -28,8 +29,8 @@
     data () {
       return {
         currentChannel: {
-          name: 'MSNBC',
-          url: 'https://www.watchnews.pro/msnbc-news.html',
+          name: 'ABC News',
+          url: 'https://www.watchnews.pro/abc-news.html',
           stream: '',
           logo: '',
           state: ''
@@ -49,10 +50,11 @@
         this.$electron.shell.openExternal(link)
       },
       openStream (url) {
+        console.log('> Mounting: ' + url)
         let self = this
         if (Hls.isSupported()) {
           let video = document.getElementById('video')
-          let hls = new Hls({
+          hls = new Hls({
             // debug: true
           })
           hls.attachMedia(video)
@@ -60,7 +62,7 @@
             // console.log('video and hls.js are now bound together !')
             hls.loadSource(url)
             hls.on(Hls.Events.MANIFEST_PARSED, function (event, data) {
-              console.log('> Opened Stream: ' + url)
+              console.log('> Streaming: ' + url)
               // console.log('manifest loaded, found ' + data.levels.length + ' quality level')
               video.play()
               self.currentChannel.state = 'loaded'
@@ -70,6 +72,10 @@
             })
           })
         }
+      },
+      destroyStream () {
+        console.log('> Destroy stream')
+        hls.destroy()
       }
     }
   }

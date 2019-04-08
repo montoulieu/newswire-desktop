@@ -1,10 +1,13 @@
 'use strict'
 
 import { app, BrowserWindow, TouchBar } from 'electron'
-const { TouchBarLabel, TouchBarButton, TouchBarSpacer } = TouchBar
+const { TouchBarButton, TouchBarSpacer } = TouchBar
 
 const button = new TouchBarButton({
-  label: 'Test'
+  label: 'Test',
+  click: function () {
+    console.log('clicked touch bar')
+  }
 })
 
 /**
@@ -22,7 +25,6 @@ const winURL = process.env.NODE_ENV === 'development'
 
 const touchBar = new TouchBar([
   button,
-  new TouchBarLabel({ label: 'Label' }),
   new TouchBarSpacer({ size: 'small' })
 ])
 

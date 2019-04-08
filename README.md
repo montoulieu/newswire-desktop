@@ -2,14 +2,14 @@
 
 > A modern desktop frontend for live cable news streams
 
+![app screenshot](https://github.com/pi-mont/newswire-desktop/blob/master/screen.png?raw=true)
+
 ## About
 Newswire is a frontend for news livestreams that allows you to quickly channel surf through American news stations.
 
 This app is in an alpha state and built for macOS only at the moment. (Windows & Linux coming soon!)
 
 The livestreams can ocassionaly stutter or be temperemental at times, but feel free to report any suggestions or issues.
-
-![app screenshot](https://github.com/pi-mont/newswire-desktop/blob/master/screen.png?raw=true)
 
 ## Todo
 - [ ] Custom player controls with macOS functionality (Airplay and PiP)

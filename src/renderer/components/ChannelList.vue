@@ -1,23 +1,22 @@
 <template>
-  <div>
-    <b-list-group class="pt-1">
-      <b-list-group-item
-        button
-        v-for="(options, channel) in channels"
-        :key="channel.id"
-        v-on:click="changeChannel(channel)"
-        v-bind:class="{ active: channel == currentChannel.name }"
-        class="py-0 pl-4"
-      >
-        <img :src="options.logo.url" v-if="options.logo.url" :height="options.logo.height">
-        <span class="label" v-if="!options.logo.url">{{channel}}</span>
-      </b-list-group-item>
-    </b-list-group>
-  </div>
+  <b-list-group class="channel-list pt-1">
+    <b-list-group-item
+      button
+      v-for="(options, channel) in channels"
+      :key="channel.id"
+      v-on:click="changeChannel(channel)"
+      v-bind:class="{ active: channel == currentChannel.name }"
+      class="py-0 pl-4"
+    >
+      <img :src="options.logo.url" v-if="options.logo.url" :height="options.logo.height">
+      <span class="label" v-if="!options.logo.url">{{channel}}</span>
+    </b-list-group-item>
+  </b-list-group>
 </template>
 
 <script>
 const rp = require('request-promise')
+let Mousetrap = require('mousetrap')
 
 export default {
   name: 'channel-list',
@@ -25,7 +24,13 @@ export default {
     currentChannel: Object
   },
   mounted () {
+    let self = this
     this.changeChannel(this.currentChannel.name)
+    Mousetrap.bind('r', function () {
+      self.changeChannel(self.currentChannel.name)
+    })
+    Mousetrap.bind('up', function () {
+    })
   },
   methods: {
     emitChannel (channel) {

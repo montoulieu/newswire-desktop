@@ -45,6 +45,10 @@ button {
   cursor: default !important;
 }
 
+.sidebar {
+  border-right: 1px solid darken($color-light, 85%) !important;
+}
+
 .list-group-item {
   background: darken($color-light, 85%);
   color: $color-light;
@@ -73,6 +77,10 @@ button {
 }
 .letter-spacing-1 {
   letter-spacing: 1px;
+}
+
+.video-pane {
+  background: darken($color-dark, 5%)
 }
 
 video {

@@ -60,10 +60,11 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^4.3.1",
-    "bootstrap-vue": "^2.0.0-rc.16",
+    "bootstrap-vue": "^2.0.0-rc.17",
     "cheerio": "^1.0.0-rc.3",
     "hls.js": "^0.12.4",
     "jquery": "^3.3.1",
+    "mousetrap": "^1.6.3",
     "request": "^2.88.0",
     "request-promise": "^4.2.4",
     "vue": "^2.5.16",

@@ -1,5 +1,5 @@
 <template>
-  <div class="col-md-9 text-left order-2 px-0"
+  <div class="video-pane col-md-9 text-left order-2 px-0"
     @mouseover="hovering = true"
     @mouseleave="hovering = false"
   >
@@ -21,14 +21,45 @@
 </template>
 
 <script>
+let Mousetrap = require('mousetrap')
+
 export default {
   name: 'video-pane',
   props: {
     currentChannel: Object
   },
+  mounted () {
+    let video = document.getElementById('video')
+
+    Mousetrap.bind('space', function (e) {
+      e.preventDefault()
+      if (!video.paused) {
+        video.pause()
+      } else {
+        video.play()
+      }
+    })
+
+    Mousetrap.bind('m', function () {
+      if (!video.muted) {
+        video.muted = true
+      } else {
+        video.muted = false
+      }
+    })
+
+    Mousetrap.bind('up up down down left right left right b a enter', function () {
+      require('electron').shell.openExternal('https://www.youtube.com/watch?v=NImW-Rs8eK8')
+    })
+  },
   data () {
     return {
       hovering: false
+    }
+  },
+  method: {
+    open (link) {
+      this.$electron.shell.openExternal(link)
     }
   }
 }

@@ -1,6 +1,7 @@
 'use strict'
 
 import { app, BrowserWindow, TouchBar } from 'electron'
+import '../renderer/store'
 const { TouchBarButton, TouchBarSpacer } = TouchBar
 
 const button = new TouchBarButton({

@@ -48,6 +48,28 @@ export default {
       }
     })
 
+    Mousetrap.bind('-', function () {
+      if (video.volume !== 0) {
+        video.volume -= 0.1
+      }
+    })
+
+    Mousetrap.bind('=', function () {
+      if (video.volume !== 1) {
+        video.volume += 0.1
+      }
+    })
+
+    Mousetrap.bind('f', function () {
+      console.log('f pressed')
+
+      if (video.webkitDisplayingFullscreen) {
+        video.webkitExitFullScreen()
+      } else {
+        video.webkitRequestFullScreen()
+      }
+    })
+
     Mousetrap.bind('up up down down left right left right b a enter', function () {
       require('electron').shell.openExternal('https://www.youtube.com/watch?v=NImW-Rs8eK8')
     })

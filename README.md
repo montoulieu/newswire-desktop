@@ -11,6 +11,18 @@ This app is in an alpha state and built for macOS only at the moment. (Windows &
 
 The livestreams can ocassionaly stutter or be temperemental at times, but feel free to report any suggestions or issues.
 
+## Keyboard Shortcuts
+Key | Function
+-------|--------
+-/+ | Volume
+Space | Play/Pause
+M | Mute
+F | Enter/Exit Fullscreen
+R | Reload Stream
+
+
+
+
 ## Todo
 - [ ] Custom player controls with macOS functionality (Airplay and PiP)
 - [ ] Fix broken news streams (Fox News, HLN, CNBC)

@@ -19,7 +19,7 @@ $theme-colors: (
 
 body {
   user-select: none;
-  background: $color-dark;
+  background-color: rgba(0,0,0,0.3);
   color: $color-light;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -47,10 +47,14 @@ button {
 
 .sidebar {
   border-right: 1px solid darken($color-light, 85%) !important;
+
+  header {
+    background-color: rgba(0,0,0,0.4);
+  }
 }
 
 .list-group-item {
-  background: darken($color-light, 85%);
+  background: transparent;
   color: $color-light;
   border-radius: 0 !important;
   height: 55px;
@@ -60,7 +64,7 @@ button {
   &:hover,
   &:focus,
   &.active {
-    background: darken($color-light, 80%);
+    background: darken($color-light, 65%);
     border-color: $color-dark;
     outline: 0;
   }
@@ -96,4 +100,10 @@ video {
 span.version {
   font-size: 0.75rem;
   display: inline-block;
+}
+
+.dark-mode {
+  body {
+
+  }
 }

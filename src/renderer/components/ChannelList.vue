@@ -1,5 +1,5 @@
 <template>
-  <b-list-group class="channel-list pt-1">
+  <b-list-group class="channel-list">
     <b-list-group-item
       button
       v-for="(options, channel) in channels"

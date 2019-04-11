@@ -1,6 +1,6 @@
 {
   "name": "newswire",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "author": "Pieter Montoulieu <pi.mont@icloud.com>",
   "description": "A modern desktop frontend for live cable news streams",
   "license": "gpl-3.0",
@@ -62,6 +62,7 @@
     "bootstrap": "^4.3.1",
     "bootstrap-vue": "^2.0.0-rc.17",
     "cheerio": "^1.0.0-rc.3",
+    "electron-util": "^0.11.0",
     "hls.js": "^0.12.4",
     "jquery": "^3.3.1",
     "mousetrap": "^1.6.3",

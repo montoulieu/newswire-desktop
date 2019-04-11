@@ -1,7 +1,7 @@
 <template>
-  <div class="sidebar col-md-3 order-1 px-0 pt-4 border-right border-dark text-left">
-    <header class="d-flex align-items-end pb-2">
-      <h1 class="text-light font-weight-800 letter-spacing-1 text-left pl-4 pt-3 mb-0 d-inline-block">Newswire</h1>
+  <div class="sidebar col-md-3 order-1 px-0 border-right border-dark text-left">
+    <header class="d-flex align-items-end pt-4 pb-3">
+      <h1 class="font-weight-800 letter-spacing-1 text-left pl-4 pt-3 mb-0 d-inline-block">Newswire</h1>
       <span class="version bg-primary ml-2 mb-2 px-1 d-inline-block rounded">alpha {{ versionNumber }}</span>
     </header>
     <channel-list :currentChannel="currentChannel" :channels="channels" @open-stream="openStream" @destroy-stream="destroyStream"/>

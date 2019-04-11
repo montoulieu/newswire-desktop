@@ -1,6 +1,6 @@
 <template>
-  <div id="wrapper" :class="{ 'theme-dark': darkMode }">
-    <b-container fluid class="">
+  <div id="wrapper" :class="{ 'dark-mode': isDarkMode }">
+    <b-container fluid>
       <div class="row">
         <video-pane
           :currentChannel="currentChannel"
@@ -16,6 +16,7 @@
   import VideoPane from '@/components/VideoPane'
   import Hls from 'hls.js'
   let hls = new Hls({})
+  const {api} = require('electron-util')
   // const { systemPreferences } = require('electron')
 
   // const c = require('cheerio')
@@ -42,7 +43,8 @@
       // console.log('SystemPref: ' + systemPreferences)
     },
     computed: {
-      darkMode: function () {
+      isDarkMode: function () {
+        return api.systemPreferences.isDarkMode()
       }
     },
     methods: {

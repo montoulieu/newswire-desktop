@@ -31,8 +31,10 @@ function createWindow () {
     height: 600,
     width: 1420,
     resizable: false,
-    useContentSize: true,
+    // useContentSize: true,
     darkTheme: true,
+    vibrancy: 'ultra-dark',
+    transparent: true,
     titleBarStyle: 'hidden',
     webPreferences: {
       webSecurity: false

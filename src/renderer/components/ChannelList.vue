@@ -106,7 +106,7 @@ export default {
           favorite: false
         },
         'MSNBC': {
-          url: 'https://www.watchnews.pro/msnbc-news.html',
+          url: 'https://www.watchnews.pro/msnbc-2.html',
           logo: {
             url: 'static/svg/logo/msnbc.svg',
             height: 22
